@@ -9,13 +9,13 @@ import {
   Plus,
   Trash2,
   Send,
+  Sun,
+  Moon,
 } from "lucide-react";
 import SecretPhraseGrid from "./components/SecretPhraseGrid.jsx";
 import { generateMnemonic as generateBip39Mnemonic } from "bip39";
 import { Buffer } from "buffer";
 import { generateWallet, importWallet, getBalance } from "./utils/wallet.js";
-import sunIcon from "./assests/sun.svg";
-import moonIcon from "./assests/moon.svg";
 
 window.Buffer = Buffer;
 
@@ -208,11 +208,11 @@ const App = () => {
           } shadow transition-colors`}
           aria-label="Toggle dark mode"
         >
-          <img
-            src={darkMode ? sunIcon : moonIcon}
-            alt={darkMode ? "Light mode" : "Dark mode"}
-            className="w-6 h-6"
-          />
+          {darkMode ? (
+            <Sun className="w-6 h-6 text-white" />
+          ) : (
+            <Moon className="w-6 h-6 text-black" />
+          )}
         </button>
       </div>
       <div className="max-w-4xl mx-auto">
