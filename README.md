@@ -1,7 +1,7 @@
-# SolVault 🔐
+# DevSol �
 
 <div align="center">
-  <strong>A secure Solana wallet generator built with React and Vite</strong>
+  <strong>Complete Solana Development Toolkit built with React and Vite</strong>
   <br><br>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
@@ -11,35 +11,73 @@
 
 <br>
 
-SolVault allows users to generate new Solana wallets or import existing ones using BIP39 mnemonic phrases.
+DevSol is a comprehensive Solana development toolkit that provides essential tools for wallet generation, token distribution, transactions, and token minting - all in one place.
+
+> **Note**: This project was built as part of a development assignment to demonstrate Solana blockchain integration and modern web development practices.
+
+## Screenshot
+
+<div align="center">
+  <img src="src/assests/homepage.png" alt="DevSol Landing Page" width="800">
+  <br>
+  <em>DevSol Landing Page showcasing all available tools</em>
+</div>
 
 ## Features
 
+### 🏦 SolVault
+
 - 🔑 Generate new Solana wallets with BIP39 mnemonic phrases
 - 📥 Import existing wallets using seed phrases
-- 👁️ Toggle visibility for sensitive information (seed phrases, private keys)
+- 👁️ Toggle visibility for sensitive information
 - 📋 Copy wallet details to clipboard
 - 💰 Check wallet balance on Solana devnet
-- 🔒 Security-focused design with warnings and best practices
-- 📱 Responsive design for all devices
+
+### � Solana Faucet
+
+- 🪣 Request free testnet SOL tokens
+- ⚡ Quick airdrop for development testing
+- 📊 Display wallet balance after requests
+
+### 💸 TransactionSol
+
+- 🚀 Send SOL tokens securely
+- 🎯 Input validation and error handling
+- ✅ Transaction confirmation and signatures
+- 💡 Helpful tooltips for disabled states
+
+### 🎨 Mintify (Coming Soon)
+
+- 🪙 Create and mint custom SPL tokens
+- ⚙️ Token configuration and metadata
+- 🔧 Advanced token management features
+
+### 🌙 Additional Features
+
+- 🌓 Dark/Light mode toggle
+- 📱 Fully responsive design
+- 🔒 Security-focused with best practices
+- 🎨 Modern UI with smooth animations
 
 ## Tech Stack
 
 - **React** - Frontend framework
 - **Vite** - Build tool and development server
-- **Tailwind CSS** - Styling
+- **Tailwind CSS** - Styling and responsive design
 - **@solana/web3.js** - Solana blockchain interaction
+- **@solana/wallet-adapter-react** - Wallet integration
 - **bip39** - Mnemonic phrase generation and validation
+- **bs58** - Base58 encoding for Solana addresses
 - **Buffer** - Browser polyfill for Node.js Buffer
-- **Lucide React** - Icons
+- **Lucide React** - Modern icon library
 
 ## Installation
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/riteshkrkarn/SolVault.git
-cd SolVault
+git clone https://github.com/riteshkrkarn/DevSol.git
+cd DevSol
 ```
 
 2. Install dependencies:
@@ -58,11 +96,26 @@ npm run dev
 
 ## Usage
 
+### SolVault
+
 1. **Generate New Wallet**: Leave the input field blank and click "Generate" to create a new wallet
 2. **Import Existing Wallet**: Enter your BIP39 mnemonic phrase in the input field and click "Generate"
 3. **View Seed Phrase**: Click "Show" to reveal your mnemonic words
 4. **Copy Details**: Use the copy buttons to copy seed phrase, public key, or private key
 5. **Check Balance**: The balance will be automatically fetched for imported wallets
+
+### Solana Faucet
+
+1. **Connect Wallet**: Click "Connect Wallet" to connect your Solana wallet
+2. **Request Airdrop**: Enter the amount of SOL tokens to request (up to 2 SOL)
+3. **Check Balance**: View your updated balance after the airdrop
+
+### TransactionSol
+
+1. **Connect Wallet**: Click "Connect Wallet" to connect your Solana wallet
+2. **Enter Details**: Input recipient's public key and amount to send
+3. **Send Transaction**: Click "Send SOL" to execute the transaction
+4. **View Confirmation**: See transaction signature and success message
 
 ## Security Features
 
@@ -74,15 +127,24 @@ npm run dev
 ## Project Structure
 
 ```
-SolVault/
-├── public/
-│   └── logo.svg          # Gemini-generated logo
+DevSol/
 ├── src/
+│   ├── solVault/
+│   │   ├── Vault.jsx     # Wallet generation and management
+│   │   └── ...
+│   ├── solDrop/
+│   │   ├── Faucet.jsx    # SOL token faucet
+│   │   ├── Balance.jsx   # Balance display
+│   │   └── ...
+│   ├── transactionSol/
+│   │   ├── TransactionSol.jsx  # Main transaction page
+│   │   └── sendTokens.jsx      # Send SOL functionality
 │   ├── components/
 │   │   └── SecretPhraseGrid.jsx
 │   ├── utils/
-│   │   └── wallet.js     # Wallet generation and management
-│   ├── App.jsx           # Main application component
+│   │   └── wallet.js     # Wallet utilities
+│   ├── App.jsx           # Main application routing
+│   ├── Landing.jsx       # Landing page
 │   ├── index.css         # Tailwind CSS imports
 │   └── main.jsx          # Application entry point
 ├── README.md
@@ -106,7 +168,7 @@ SolVault/
 
 ## Disclaimer
 
-⚠️ **This application is built for learning purposes only.**
+⚠️ **This application is built for learning purposes as part of a development assignment.**
 
 - Always verify transactions on mainnet
 - Never share your seed phrase or private keys
