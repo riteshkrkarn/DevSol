@@ -13,7 +13,7 @@
 
 DevSol is a comprehensive Solana development toolkit that provides essential tools for wallet generation, token distribution, transactions, and token minting - all in one place.
 
-> **Note**: This project was built as part of a development assignment to demonstrate Solana blockchain integration and modern web development practices.
+> **Note**: This project was built during my learning journey with Solana blockchain development to demonstrate integration and modern web development practices.
 
 ## Screenshot
 
@@ -46,11 +46,12 @@ DevSol is a comprehensive Solana development toolkit that provides essential too
 - ✅ Transaction confirmation and signatures
 - 💡 Helpful tooltips for disabled states
 
-### 🎨 Mintify (Coming Soon)
+### 🎨 Mintify
 
-- 🪙 Create and mint custom SPL tokens
-- ⚙️ Token configuration and metadata
-- 🔧 Advanced token management features
+- 🪙 Create custom SPL tokens with initial supply
+- ⚙️ Mint tokens to specific accounts
+- 🏗️ Single transaction approach for reliability
+- � Real-time token account information
 
 ### 🌙 Additional Features
 
@@ -65,7 +66,8 @@ DevSol is a comprehensive Solana development toolkit that provides essential too
 - **Vite** - Build tool and development server
 - **Tailwind CSS** - Styling and responsive design
 - **@solana/web3.js** - Solana blockchain interaction
-- **@solana/wallet-adapter-react** - Wallet integration
+- **@solana/spl-token** - SPL token operations
+- **@solana/wallet-adapter-react** - Wallet integration (from anza-xyz/wallet-adapter)
 - **bip39** - Mnemonic phrase generation and validation
 - **bs58** - Base58 encoding for Solana addresses
 - **Buffer** - Browser polyfill for Node.js Buffer
@@ -117,6 +119,13 @@ npm run dev
 3. **Send Transaction**: Click "Send SOL" to execute the transaction
 4. **View Confirmation**: See transaction signature and success message
 
+### Mintify
+
+1. **Connect Wallet**: Click "Connect Wallet" to connect your Solana wallet
+2. **Set Initial Supply**: Enter the initial token supply amount
+3. **Create Token**: Click "Create Token" to generate a new SPL token
+4. **Mint to Accounts**: After creation, mint additional tokens to specific recipient addresses
+
 ## Security Features
 
 - Seed phrases are hidden by default
@@ -139,6 +148,9 @@ DevSol/
 │   ├── transactionSol/
 │   │   ├── TransactionSol.jsx  # Main transaction page
 │   │   └── sendTokens.jsx      # Send SOL functionality
+│   ├── mintify/
+│   │   ├── Mintify.jsx         # Main mintify page
+│   │   └── CreateToken.jsx     # Token creation and minting
 │   ├── components/
 │   │   └── SecretPhraseGrid.jsx
 │   ├── utils/
@@ -168,7 +180,7 @@ DevSol/
 
 ## Disclaimer
 
-⚠️ **This application is built for learning purposes as part of a development assignment.**
+⚠️ **This application was built for learning purposes during my Solana development journey.**
 
 - Always verify transactions on mainnet
 - Never share your seed phrase or private keys
