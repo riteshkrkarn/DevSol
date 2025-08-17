@@ -1,5 +1,5 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import { LAMPORTS_PER_SOL } from "@solana/web3.js";
+import { LAMPORTS_PER_SOL, PublicKey } from "@solana/web3.js";
 import React, { useEffect } from "react";
 
 const RequestAirdrop = ({ onAirdropSuccess }) => {
@@ -20,15 +20,16 @@ const RequestAirdrop = ({ onAirdropSuccess }) => {
   }, [wallet.publicKey]);
 
   async function requestAirDrop(amount) {
-    if (!wallet.publicKey || !amount) return;
+    if ((!wallet.publicKey && !publicKey) || !amount) return;
 
     setIsLoading(true);
     setMessage({ type: "", text: "" });
 
     try {
-      const walletPublicKey = wallet.publicKey;
+      // Use connected wallet public key if available, otherwise use input public key
+      const targetPublicKey = wallet.publicKey || new PublicKey(publicKey);
       const signature = await connection.requestAirdrop(
-        walletPublicKey,
+        targetPublicKey,
         amount * LAMPORTS_PER_SOL
       );
 
@@ -37,7 +38,7 @@ const RequestAirdrop = ({ onAirdropSuccess }) => {
 
       setMessage({
         type: "success",
-        text: `Successfully airdropped ${amount} SOL to your wallet!`,
+        text: `Successfully airdropped ${amount} SOL to the wallet!`,
       });
 
       // Call the success callback if provided
@@ -103,7 +104,7 @@ const RequestAirdrop = ({ onAirdropSuccess }) => {
       {/* Request Airdrop Button */}
       <button
         onClick={() => requestAirDrop(amount)}
-        disabled={!wallet.publicKey || !amount || isLoading}
+        disabled={(!wallet.publicKey && !publicKey) || !amount || isLoading}
         className="w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white rounded-lg font-medium shadow-lg transition-all duration-200 transform hover:scale-105 disabled:hover:scale-100"
       >
         {isLoading ? "Processing..." : "Request Airdrop"}
