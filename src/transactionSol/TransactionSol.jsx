@@ -9,7 +9,7 @@ import {
   WalletModalProvider,
   WalletMultiButton,
 } from "@solana/wallet-adapter-react-ui";
-import SendTokens from "./sendTokens";
+import SendTokens from "./SendTokens";
 
 const TransactionSol = () => {
   const [darkMode, setDarkMode] = useState(false);
